@@ -1,11 +1,15 @@
-// let currentDate = moment().format("dddd") + "" + moment().format("Do MMM YYYY");
-// let currentHour = moment().format('h:mm:ss a');
+let currentDate = moment().format("dddd") + "" + moment().format("Do MMM YYYY");
+let currentHour = moment().format('h:mm:ss a');
 
-function getHeaderDate() {
-    let currentHeaderDate = moment().format("MMM Do YYYY H:ss");
-    $("#currentDay").text(currentHeaderDate);
-}
-getHeaderDate()
+let mainTime = setInterval( function(){
+    let timeNow= moment();
+    $("#currentDay").html(timeNow.format("YYY MMM DD") + " "
+    + timeNow.format("dddd")
+    .substring(0.3).toUpperCase());
+    $("currentDay").html(currentDate + " " + timeNow.format("hh:mm:ss A"));
+}, 1000);
+
+
 
 let nineHour = $('#hour9');
 
@@ -25,27 +29,42 @@ let sixteenHour = $('#hour16');
 
 let seventeenHour = $('#hour17');
 
+let hour= .moment().hour()
+
 let myHour = [
-    {nineHour},
+    { nineHour },
 
-    {tenHour},
+    { tenHour },
 
-    {elevenHour},
+    { elevenHour },
 
-    {twelveHour},
+    { twelveHour },
 
-    {thirteenHour},
+    { thirteenHour },
 
-    {fourteenHour},
+    { fourteenHour },
 
-    {fifteenHour},
+    { fifteenHour },
 
-    {sixteenHour},
+    { sixteenHour },
 
-    {seventeenHour},
+    { seventeenHour },
 
 ]
 
+function background() {
+
+    $(.description).each(function () {
+
+        if (myHour > hour) {
+            $(this).addClass("past");
+        } else if (myHour < hour) {
+            $(this).addClass("future");
+        } else {
+            $(this).addClass("present");
+        }
+    });
+}
 
 
 
