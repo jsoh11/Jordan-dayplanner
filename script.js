@@ -54,7 +54,7 @@ let myHour = [
 
 function background() {
 
-    $(.description).each(function () {
+    $("<textarea>").each(function () {
 
         if (myHour > hour) {
             $(this).addClass("past");
